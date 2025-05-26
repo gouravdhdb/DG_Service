@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firebase Data Save</title>
+</head>
+<body>
+  <h2>Enter Your Name</h2>
+  <input type="text" id="nameInput" placeholder="Your name">
+  <button onclick="saveData()">Save to Firebase</button>
+
+  <script type="module">
+    // Firebase import from CDN
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    // Tumhara firebaseConfig yahan paste karo
+    const firebaseConfig = {
+      apiKey: "AIzaSyAAum8UicFCCF5bgwMQUzqmK3lR2bBoFGk",
+      authDomain: "dg-service-5a315.firebaseapp.com",
+      projectId: "dg-service-5a315",
+      storageBucket: "dg-service-5a315.appspot.com",
+      messagingSenderId: "482066361849",
+      appId: "1:482066361849:web:8c02aefb4bbd2eba01e128",
+      measurementId: "G-J2S07THL2N"
+    };
+
+    // Initialize Firebase and Firestore
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Save data function
+    async function saveData() {
+      const name = document.getElementById("nameInput").value;
+      try {
+        const docRef = await addDoc(collection(db, "users"), {
+          name: name
+        });
+        alert("Data saved! Document ID: " + docRef.id);
+      } catch (error) {
+        console.error("Error adding document: ", error);
+      }
+    }
+  </script>
+</body>
+</html>
