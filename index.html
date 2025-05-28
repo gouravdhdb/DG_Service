@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAAuUBUCCFc5B9QMWQLqzmquZRuIBNH2ys",
+    authDomain: "dg-service-5a315.firebaseapp.com",
+    projectId: "dg-service-5a315",
+    storageBucket: "dg-service-5a315.appspot.com",
+    messagingSenderId: "482066361849",
+    appId: "1:482066361849:web:8c02eefe4bbd2eba01e128",
+    measurementId: "G-J29O7THL2N"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
   <title>Product Gallery</title>
   <link rel="stylesheet" href="style.css">
 </head>
