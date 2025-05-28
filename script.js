@@ -43,26 +43,17 @@ function loadProducts() {
 // --- UPLOAD PRODUCT FUNCTION (ADMIN ONLY) ---
 function uploadProduct() {
   const name = document.getElementById("pname").value;
-  const price = document.getElementById("pprice").value;
-  const file = document.getElementById("pimage").files[0];
+  const price = parseFloat(document.getElementById("pprice").value);
 
-  if (!name || !price || !file) {
-    alert("Please fill all fields and choose an image.");
-    return;
-  }
-
-  const reader = new FileReader();
-  reader.onload = function () {
-    const imageData = reader.result;
-    const newProduct = { name, price, image: imageData };
-
-    const products = JSON.parse(localStorage.getItem("products") || "[]");
-    products.push(newProduct);
-    localStorage.setItem("products", JSON.stringify(products));
-
-    alert("Product uploaded successfully!");
-    loadProducts();
-  };
+  db.collection("Products").add({
+    name: name,
+    price: price
+  }).then(() => {
+    alert("Product Uploaded Successfully!");
+  }).catch((error) => {
+    console.error("Error uploading product: ", error);
+  });
+}
 
   reader.readAsDataURL(file);
 }
