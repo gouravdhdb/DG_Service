@@ -1,82 +1,66 @@
-/* General Reset */
+/* Reset and base styling */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #1c1c1c, #2c3e50);
+  color: #ffffff;
   padding: 20px;
+  min-height: 100vh;
 }
 
-/* Headings */
+/* Heading styling */
 h2 {
-  margin-bottom: 20px;
-  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2rem;
   color: #00eaff;
 }
 
-/* Input fields */
-input {
-  padding: 12px;
-  margin: 10px 0;
-  width: 100%;
-  max-width: 320px;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  font-size: 1rem;
-  background-color: #f2f2f2;
-  color: #000;
-}
-
-/* Buttons */
-button {
-  padding: 12px 24px;
-  margin: 10px 5px;
-  border: none;
-  border-radius: 8px;
-  background-color: #00eaff;
-  color: #000;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-button:hover {
-  background-color: #00bcd4;
-  transform: scale(1.05);
-}
-
-/* Message */
-#message {
-  margin-top: 15px;
-  color: #ff8c00;
-}
-
-/* Gallery Styling */
-#gallery {
+/* Product list container */
+#productList {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  margin-top: 30px;
 }
 
-#gallery img {
-  width: 80%;
-  max-width: 300px;
+/* Each product card */
+.product-card {
+  background: #ffffff;
+  color: #000000;
+  padding: 16px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+/* Product image */
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+/* Product name */
+.product-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+/* Product price */
+.product-card p {
+  font-size: 1rem;
+  color: #555;
 }
